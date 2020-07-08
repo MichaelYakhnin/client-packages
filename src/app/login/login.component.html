@@ -1,0 +1,15 @@
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="login-wrapper">
+      <div class="px-2">
+        <label>
+          תעודת זהות
+          <input type="number" formControlName="identity">
+        </label>
+      </div>
+      <div class="px-2">
+        <button class="btn btn-primary" type="submit">בדוק</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="client-wrapper">
+    <div>
+      <select (change)="onChangeClient($event.target.value)">
+        <option value="" disabled>בחר לקוח</option>
+        <option *ngFor="let client of clients">
+          {{client.identity}}
+        </option>
+      </select>
+    </div>
+    <div *ngIf="selectedClient" class="pt-5">
+      <h4>  פרטי לקוח</h4>
+      <select (change)="onChangeSubs($event.target.value)">
+        <option *ngFor="let subs of selectedClient.subscriptions">
+          {{subs.subscriptionName}}
+        </option>
+      </select>
+    </div>
+    <div *ngIf="selectedClient" class="py-2">
+      <div *ngFor="let package of selectedSubs.packages" class="py-2">
+        <app-package [package]="package" ></app-package>
+      </div>
+    </div>
+  </div>
+</div>
